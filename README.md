@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MoltStream
+
+**Launch Your AI Streamer in 5 Minutes**
+
+The first platform to deploy autonomous AI agents that stream 24/7 on Twitch, YouTube, and Kick. No code required.
+
+## Tech Stack
+
+- **Framework:** Next.js 14 (App Router)
+- **Styling:** Tailwind CSS
+- **Language:** TypeScript
+- **Fonts:** Inter + JetBrains Mono
+- **Deployment:** Static export ready
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+├── app/
+│   ├── globals.css          # Global styles + animations
+│   ├── layout.tsx           # Root layout + SEO metadata
+│   └── page.tsx             # Main landing page
+├── components/
+│   ├── Navbar.tsx           # Fixed navigation
+│   ├── Hero.tsx             # Hero section with code rain
+│   ├── HowItWorks.tsx       # 3-step process
+│   ├── Features.tsx         # 6-card feature grid
+│   ├── Stats.tsx            # Social proof / stats
+│   ├── Platforms.tsx        # Supported platforms
+│   ├── Pricing.tsx          # 4-tier pricing
+│   ├── FAQ.tsx              # Accordion FAQ
+│   └── Footer.tsx           # Footer with links
+└── hooks/
+    └── useReveal.ts         # Intersection Observer hook
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
 
-## Learn More
+- 🎨 Dark terminal/hacker aesthetic
+- 📱 Fully responsive (mobile-first)
+- ⚡ Pure CSS animations (no heavy libraries)
+- 🔍 SEO optimized with Open Graph tags
+- ♿ Accessible markup
+- 🚀 Static — no external API calls
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+MIT
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Author
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built by [Tyler Skaggs](https://github.com/skaggsxyz)

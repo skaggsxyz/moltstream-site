@@ -240,6 +240,29 @@ main, header, footer, nav {
 .reveal-stagger.visible > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.25s; }
 .reveal-stagger.visible > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
 
+/* ─── GitHub Rainbow CTA ─── */
+
+@keyframes rainbow-border {
+  0% { border-color: #ff2020; box-shadow: 0 0 15px rgba(255, 32, 32, 0.3); }
+  16% { border-color: #ff8800; box-shadow: 0 0 15px rgba(255, 136, 0, 0.3); }
+  33% { border-color: #ffdd00; box-shadow: 0 0 15px rgba(255, 221, 0, 0.3); }
+  50% { border-color: #00ff88; box-shadow: 0 0 15px rgba(0, 255, 136, 0.3); }
+  66% { border-color: #00ccff; box-shadow: 0 0 15px rgba(0, 204, 255, 0.3); }
+  83% { border-color: #aa44ff; box-shadow: 0 0 15px rgba(170, 68, 255, 0.3); }
+  100% { border-color: #ff2020; box-shadow: 0 0 15px rgba(255, 32, 32, 0.3); }
+}
+
+.github-rainbow {
+  border: 2px solid #ff2020;
+  animation: rainbow-border 4s linear infinite;
+  position: relative;
+}
+
+.github-rainbow:hover {
+  animation-duration: 1.5s;
+  box-shadow: 0 0 25px rgba(255, 32, 32, 0.5);
+}
+
 /* Selection */
 ::selection {
   background: var(--brutal-red);

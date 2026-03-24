@@ -90,17 +90,16 @@ export default function GridCanvas() {
           const dy = y - my;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          // Scale: 0 at no cursor → MAX_SCALE at cursor
-          // Minimum scale so stars are still visible
+          // Scale: fully invisible (0) when no cursor nearby → MAX_SCALE at cursor
           const t = Math.max(0, 1 - dist / INFLUENCE);
           // Ease in-out for smooth feel
           const eased = t * t * (3 - 2 * t);
-          const scale = 0 + eased * MAX_SCALE;
+          const scale = eased * MAX_SCALE;
 
-          if (scale < 0.05) continue; // skip invisible stars
+          if (scale < 0.01) continue; // skip invisible stars
 
           const size = BASE_SIZE * scale;
-          const alpha = 0.15 + eased * 0.85;
+          const alpha = eased * 0.95;
 
           drawStar(x, y, size, alpha);
         }

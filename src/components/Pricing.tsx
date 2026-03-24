@@ -1,175 +1,142 @@
-"use client";
-
-const plans = [
+const tiers = [
   {
-    name: "Free",
+    name: "HOBBYIST",
     price: "$0",
-    period: "forever",
-    description: "Get started. See what's possible.",
+    period: "/FOREVER",
     features: [
-      "1 AI streamer",
-      "10 hours / month",
-      "Single platform",
-      "MoltStream watermark",
+      "1 agent",
+      "720p streaming",
+      "Basic chat responses",
       "Community support",
+      "5hr / day limit",
     ],
-    cta: "Start Free",
-    popular: false,
+    highlighted: false,
   },
   {
-    name: "Starter",
-    price: "$149",
-    period: "/mo",
-    description: "For creators ready to experiment.",
+    name: "INDIE",
+    price: "$29",
+    period: "/MONTH",
     features: [
-      "1 AI streamer",
-      "200 hours / month",
-      "Single platform",
-      "No watermark",
-      "Basic analytics",
-      "Email support",
+      "3 agents",
+      "1080p streaming",
+      "Game integration",
+      "Analytics basic",
+      "24/7 streaming",
     ],
-    cta: "Get Early Access",
-    popular: false,
+    highlighted: false,
   },
   {
-    name: "Pro",
-    price: "$399",
-    period: "/mo",
-    description: "Go live 24/7 across platforms.",
+    name: "PRO",
+    price: "$99",
+    period: "/MONTH",
     features: [
-      "1 AI streamer",
-      "Unlimited hours (24/7)",
-      "Multi-platform streaming",
-      "Advanced analytics",
-      "Consciousness visualization",
+      "10 agents",
+      "4K streaming",
+      "Consciousness viz",
+      "Full analytics",
       "Priority support",
-      "Custom persona fine-tuning",
+      "Custom plugins",
     ],
-    cta: "Get Early Access",
-    popular: true,
+    highlighted: true,
   },
   {
-    name: "Business",
-    price: "$999",
-    period: "/mo",
-    description: "Scale your AI streaming operation.",
+    name: "ENTERPRISE",
+    price: "CUSTOM",
+    period: "",
     features: [
-      "3 AI streamers",
-      "Unlimited hours (24/7)",
-      "Multi-platform streaming",
-      "Custom avatars",
-      "Full API access",
-      "Dedicated support",
-      "Multi-agent interactions",
-      "White-label option",
+      "Unlimited agents",
+      "Multi-platform",
+      "White label",
+      "Dedicated infra",
+      "SLA guarantee",
+      "On-call support",
     ],
-    cta: "Get Early Access",
-    popular: false,
+    highlighted: false,
   },
 ];
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-24 sm:py-32 relative">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border-subtle to-transparent" />
+    <section data-reveal="1" id="pricing" className="relative border-t border-brutal-red/30">
+      <div className="px-6 md:px-10 py-10 border-b border-brutal-red/20 relative">
+        <span className="corner-label top-right">TIER_MATRIX</span>
+        <h2 className="reveal headline-massive text-[10vw] md:text-[8vw] text-brutal-red">
+          PRICING
+        </h2>
+      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
-        <div className="text-center mb-16 reveal">
-          <span className="text-xs font-mono text-primary tracking-wider uppercase">
-            Pricing
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-4">
-            Simple, <span className="gradient-text">Transparent</span> Pricing
-          </h2>
-          <p className="text-text-secondary max-w-xl mx-auto">
-            Start free. Scale when you&apos;re ready. No hidden fees, no
-            surprise charges.
-          </p>
-        </div>
-
-        {/* Pricing grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
-          {plans.map((plan, i) => (
-            <div
-              key={plan.name}
-              className={`reveal reveal-delay-${(i % 4) + 1}`}
-            >
-              <div
-                className={`relative p-6 rounded-2xl border h-full flex flex-col transition-all duration-300 card-glow ${
-                  plan.popular
-                    ? "pricing-popular border-primary/30 bg-bg-card"
-                    : "border-border-subtle bg-bg-card hover:bg-bg-card-hover"
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        {tiers.map((tier, i) => (
+          <div
+            key={tier.name}
+            className={`grid-cell min-h-[400px] flex flex-col justify-between ${
+              tier.highlighted
+                ? "bg-brutal-red text-brutal-white"
+                : "bg-brutal-black"
+            }`}
+          >
+            <div>
+              <span
+                className={`absolute top-3 right-3 font-mono text-[10px] uppercase tracking-[0.1em] ${
+                  tier.highlighted ? "text-brutal-white/40" : "text-brutal-cyan/50"
                 }`}
               >
-                {/* Popular badge */}
-                {plan.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-primary text-bg text-[10px] font-mono font-semibold uppercase tracking-wider">
-                    Most Popular
-                  </div>
-                )}
+                TIER_{String(i + 1).padStart(2, "0")}
+              </span>
 
-                {/* Plan header */}
-                <div className="mb-6">
-                  <h3 className="text-lg font-semibold mb-1">{plan.name}</h3>
-                  <div className="flex items-baseline gap-1 mb-2">
-                    <span className="text-3xl font-bold">{plan.price}</span>
-                    <span className="text-sm text-text-muted">
-                      {plan.period}
-                    </span>
-                  </div>
-                  <p className="text-sm text-text-secondary">
-                    {plan.description}
-                  </p>
-                </div>
+              <p
+                className={`font-grotesk font-bold text-sm uppercase tracking-[0.1em] mb-6 ${
+                  tier.highlighted ? "text-brutal-white/70" : "text-brutal-white/50"
+                }`}
+              >
+                {tier.name}
+              </p>
 
-                {/* Features */}
-                <ul className="space-y-3 mb-8 flex-1">
-                  {plan.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="flex items-start gap-2 text-sm"
-                    >
-                      <svg
-                        className="w-4 h-4 text-primary mt-0.5 flex-shrink-0"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <span className="text-text-secondary">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA */}
-                <a
-                  href="#"
-                  className={`block text-center py-2.5 rounded-xl text-sm font-medium transition-all ${
-                    plan.popular
-                      ? "bg-primary hover:bg-primary-dark text-bg btn-glow"
-                      : "border border-border-subtle hover:border-primary/30 text-text-primary"
+              <p
+                className={`font-grotesk font-bold text-[10vw] md:text-[4vw] leading-none ${
+                  tier.highlighted ? "text-brutal-white" : "text-brutal-red"
+                }`}
+              >
+                {tier.price}
+              </p>
+              {tier.period && (
+                <p
+                  className={`font-mono text-[11px] uppercase tracking-[0.1em] mt-2 ${
+                    tier.highlighted ? "text-brutal-white/50" : "text-brutal-white/30"
                   }`}
                 >
-                  {plan.cta}
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
+                  {tier.period}
+                </p>
+              )}
 
-        {/* Bottom note */}
-        <p className="text-center text-xs text-text-muted mt-8 reveal">
-          All plans include security updates and platform maintenance. Prices in
-          USD. Cancel anytime.
-        </p>
+              <ul className="mt-8 space-y-3">
+                {tier.features.map((feat) => (
+                  <li
+                    key={feat}
+                    className={`font-mono text-[12px] tracking-[0.05em] ${
+                      tier.highlighted
+                        ? "text-brutal-white/80"
+                        : "text-brutal-white/50"
+                    }`}
+                  >
+                    → {feat}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <a
+              href="#"
+              className={`mt-8 block w-full text-center font-mono text-[12px] uppercase tracking-[0.15em] py-3 border transition-all duration-200 ${
+                tier.highlighted
+                  ? "border-brutal-white text-brutal-white hover:bg-brutal-white hover:text-brutal-red"
+                  : "border-brutal-red/50 text-brutal-red hover:bg-brutal-red hover:text-brutal-white"
+              }`}
+            >
+              {tier.name === "ENTERPRISE" ? "CONTACT" : "SELECT"}
+            </a>
+          </div>
+        ))}
       </div>
     </section>
   );

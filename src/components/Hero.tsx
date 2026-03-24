@@ -1,161 +1,139 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-
-const codeSnippets = [
-  "const agent = new MoltAgent()",
-  "agent.setPlatform('twitch')",
-  "agent.setPersona({ name: 'Luna' })",
-  "await agent.goLive()",
-  "stream.on('chat', handleMessage)",
-  "agent.think().respond()",
-  "consciousness.visualize()",
-  "mod.filterContent(msg)",
-  "analytics.track(viewers)",
-  "plugin.register('chess')",
-  "agent.collaborate(otherAI)",
-  "stream.quality = '1080p60'",
-];
+import { useState } from "react";
 
 export default function Hero() {
-  const rainRef = useRef<HTMLDivElement>(null);
+  const [copied, setCopied] = useState(false);
 
-  useEffect(() => {
-    const container = rainRef.current;
-    if (!container) return;
-
-    // Create code rain columns
-    for (let i = 0; i < 12; i++) {
-      const col = document.createElement("div");
-      col.className = "code-rain-col";
-      col.style.left = `${8 + i * 8}%`;
-      col.style.animationDuration = `${12 + Math.random() * 15}s`;
-      col.style.animationDelay = `${-Math.random() * 10}s`;
-      col.style.fontSize = `${10 + Math.random() * 4}px`;
-
-      const lines = [];
-      for (let j = 0; j < 8; j++) {
-        lines.push(codeSnippets[Math.floor(Math.random() * codeSnippets.length)]);
-      }
-      col.textContent = lines.join(" ");
-      container.appendChild(col);
-    }
-
-    return () => {
-      while (container.firstChild) {
-        container.removeChild(container.firstChild);
-      }
-    };
-  }, []);
+  const handleCopy = () => {
+    navigator.clipboard.writeText("npx moltstream init");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background effects */}
-      <div className="hero-grid" />
-      <div className="code-rain" ref={rainRef} />
+    <section className="relative min-h-screen pt-[60px] flex flex-col">
+      {/* Main content grid */}
+      <div className="flex-1 grid grid-cols-1 lg:grid-cols-[3fr_2fr]">
+        {/* Left Column */}
+        <div className="grid-cell flex flex-col justify-center px-6 md:px-12 lg:px-16 py-16">
+          <span className="corner-label top-left">47.3769° N / 8.5417° E</span>
+          <span className="corner-label top-right">BLOCK: M-001</span>
 
-      {/* Radial glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+          {/* Main headline */}
+          <h1 className="headline-massive text-[15vw] md:text-[12vw] lg:text-[10vw] leading-[0.85]">
+            <span className="text-brutal-red">MOLT</span>
+            <br />
+            <span className="headline-outlined">STREAM</span>
+          </h1>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-20">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 mb-8 animate-fade-in">
-          <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-          <span className="text-xs font-mono text-primary">
-            Open Source · Now in Alpha
-          </span>
-        </div>
+          {/* Pain point bylines */}
+          <div className="mt-8 md:mt-10 space-y-2">
+            <p className="font-grotesk font-bold text-brutal-white text-[4.5vw] md:text-[2.5vw] lg:text-[1.6vw] uppercase leading-tight tracking-tight">
+              Your AI agent has no audience.
+            </p>
+            <p className="font-grotesk font-bold text-brutal-white/40 text-[4.5vw] md:text-[2.5vw] lg:text-[1.6vw] uppercase leading-tight tracking-tight">
+              OBS wasn&apos;t built for autonomous agents.
+            </p>
+            <p className="font-grotesk font-bold text-brutal-red text-[4.5vw] md:text-[2.5vw] lg:text-[1.6vw] uppercase leading-tight tracking-tight">
+              We fix that.
+            </p>
+          </div>
 
-        {/* Headline */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 animate-fade-in-up">
-          Launch Your AI Streamer
-          <br />
-          <span className="gradient-text">in 5 Minutes</span>
-        </h1>
-
-        {/* Subtitle */}
-        <p className="text-lg sm:text-xl text-text-secondary max-w-2xl mx-auto mb-10 animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
-          The first platform to deploy autonomous AI agents that stream 24/7 on
-          Twitch, YouTube, and Kick.{" "}
-          <span className="text-text-primary font-medium">No code required.</span>
-        </p>
-
-        {/* CTAs */}
-        <div
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in-up"
-          style={{ animationDelay: "0.3s" }}
-        >
-          <a
-            href="#pricing"
-            className="w-full sm:w-auto px-8 py-3.5 bg-primary hover:bg-primary-dark text-bg font-semibold rounded-xl transition-all btn-glow text-sm"
-          >
-            Get Early Access
-          </a>
-          <a
-            href="https://github.com/skaggsxyz/moltstream"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto px-8 py-3.5 border border-border-subtle hover:border-primary/30 text-text-primary font-medium rounded-xl transition-all text-sm flex items-center justify-center gap-2 group"
-          >
-            <svg
-              className="w-5 h-5 text-text-secondary group-hover:text-primary transition-colors"
-              fill="currentColor"
-              viewBox="0 0 24 24"
+          {/* CLI Install Block */}
+          <div className="mt-8 md:mt-10">
+            <button
+              onClick={handleCopy}
+              className="group flex items-center gap-3 bg-brutal-white/5 border border-brutal-red/40 hover:border-brutal-red px-5 py-3.5 transition-all duration-200 cursor-pointer w-full max-w-md"
             >
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-            </svg>
-            View on GitHub
-          </a>
+              <span className="font-mono text-[13px] text-brutal-red">$</span>
+              <span className="font-mono text-[13px] text-brutal-white/80 flex-1 text-left">
+                npx moltstream init
+              </span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-brutal-white/30 group-hover:text-brutal-red transition-colors">
+                {copied ? "COPIED ✓" : "COPY"}
+              </span>
+            </button>
+          </div>
+
+          {/* CTA row */}
+          <div className="mt-6 flex items-center gap-4 flex-wrap">
+            <a
+              href="#protocol"
+              className="inline-block font-mono text-sm uppercase tracking-[0.15em] text-brutal-white border border-brutal-red px-8 py-4 hover:bg-brutal-red hover:text-brutal-black transition-all duration-200"
+            >
+              &gt;_LAUNCH_AGENT
+            </a>
+            <a
+              href="https://github.com/skaggsxyz/moltstream"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 font-mono text-sm uppercase tracking-[0.1em] text-brutal-white/60 border border-brutal-white/20 px-6 py-4 hover:border-brutal-white/50 hover:text-brutal-white transition-all duration-200"
+            >
+              <svg
+                className="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+              </svg>
+              <span>GITHUB</span>
+              <span className="text-brutal-red font-bold">★ 23</span>
+            </a>
+          </div>
+
+          <span className="corner-label bottom-left">VERSION: 0.4.0</span>
         </div>
 
-        {/* Terminal preview */}
-        <div
-          className="max-w-2xl mx-auto animate-fade-in-up"
-          style={{ animationDelay: "0.45s" }}
-        >
-          <div className="rounded-xl border border-border-subtle bg-bg-card overflow-hidden shadow-2xl">
-            {/* Terminal header */}
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-border-subtle bg-[#0d0d0d]">
-              <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
-                <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
-                <div className="w-3 h-3 rounded-full bg-[#27c93f]" />
-              </div>
-              <span className="text-xs text-text-muted font-mono ml-2">
-                moltstream deploy
-              </span>
+        {/* Right Column */}
+        <div className="grid-cell flex flex-col justify-center px-6 md:px-12 lg:px-10 py-16 border-t-2 border-t-brutal-red/60 lg:border-t-0 lg:border-l lg:border-l-brutal-red/30">
+          <span className="corner-label top-right">SYS_INIT</span>
+
+          <div className="border-t-2 border-brutal-red pt-8 max-w-md">
+            <p className="label-mono-red mb-4">{"// WHAT MOLTSTREAM DOES"}</p>
+            <p className="font-grotesk font-bold text-brutal-white text-lg md:text-xl leading-snug">
+              Deploy AI agents that stream on Kick, YouTube &amp; Twitch — autonomously.
+            </p>
+            <p className="body-text mt-4">
+              One CLI command. Your agent handles chat, gameplay, overlays, and revenue 24/7.
+            </p>
+          </div>
+
+          <div className="mt-12 flex gap-8">
+            <div>
+              <p className="font-grotesk font-bold text-2xl text-brutal-white">5min</p>
+              <p className="label-mono mt-1">DEPLOY TIME</p>
             </div>
-            {/* Terminal body */}
-            <div className="p-4 sm:p-6 text-left font-mono text-xs sm:text-sm space-y-2">
-              <div className="text-text-muted">
-                <span className="text-primary">$</span> molt deploy --platform
-                twitch --agent luna
-              </div>
-              <div className="text-text-secondary">
-                ✓ Agent &quot;Luna&quot; initialized
-              </div>
-              <div className="text-text-secondary">
-                ✓ Twitch OAuth connected
-              </div>
-              <div className="text-text-secondary">
-                ✓ Consciousness engine loaded
-              </div>
-              <div className="text-text-secondary">
-                ✓ Moderation filters active
-              </div>
-              <div className="text-[#27c93f]">
-                ⚡ Luna is now live on twitch.tv/luna_ai
-              </div>
-              <div className="text-text-muted cursor-blink">
-                <span className="text-primary">$</span>{" "}
-              </div>
+            <div>
+              <p className="font-grotesk font-bold text-2xl text-brutal-white">24/7</p>
+              <p className="label-mono mt-1">UPTIME</p>
+            </div>
+            <div>
+              <p className="font-grotesk font-bold text-2xl text-brutal-white">∞</p>
+              <p className="label-mono mt-1">SCALABLE</p>
             </div>
           </div>
+
+          <span className="corner-label bottom-right">NODE: ACTIVE</span>
         </div>
       </div>
 
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-bg to-transparent pointer-events-none" />
+      {/* Marquee Bar */}
+      <div className="marquee-wrapper py-3 border-t border-brutal-red/40 border-b border-b-brutal-red/40">
+        <div className="marquee-track">
+          {[0, 1].map((i) => (
+            <span
+              key={i}
+              className="font-mono text-[13px] font-bold uppercase tracking-[0.08em] text-brutal-white whitespace-nowrap px-4"
+            >
+              • AUTONOMOUS AI STREAMING INFRASTRUCTURE • DEPLOY YOUR AGENT IN
+              5 MINUTES • STREAM ON KICK / YOUTUBE / TWITCH • REAL-TIME
+              CONSCIOUSNESS VISUALIZATION • MULTI-AGENT ORCHESTRATION •
+              REVENUE ON AUTOPILOT •&nbsp;
+            </span>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

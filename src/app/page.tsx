@@ -5,7 +5,6 @@ import Features from "@/components/Features";
 import GettingStarted from "@/components/GettingStarted";
 import Stats from "@/components/Stats";
 import Platforms from "@/components/Platforms";
-import Pricing from "@/components/Pricing";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -19,7 +18,6 @@ export default function Home() {
         <GettingStarted />
         <Stats />
         <Platforms />
-        <Pricing />
       </main>
       <Footer />
     </>

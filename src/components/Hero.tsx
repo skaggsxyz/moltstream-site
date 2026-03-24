@@ -85,7 +85,7 @@ export default function Hero() {
             </a>
           </div>
 
-          <span className="corner-label bottom-left">VERSION: 0.6.0</span>
+          <span className="corner-label bottom-left">VERSION: 0.7.0</span>
         </div>
 
         {/* Right Column */}

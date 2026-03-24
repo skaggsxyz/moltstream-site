@@ -1,7 +1,7 @@
 const stats = [
-  { value: "23", label: "COMMITS" },
-  { value: "82", label: "FILES" },
-  { value: "5.5K", label: "LINES" },
+  { value: "30+", label: "COMMITS" },
+  { value: "15", label: "PACKAGES" },
+  { value: "6.5K", label: "LINES" },
   { value: "OSS", label: "OPEN SOURCE" },
 ];
 

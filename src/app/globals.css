@@ -63,26 +63,22 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  /* Crosshair glow at intersections + center dots */
+  /* Crosshair glow at intersections (center dots now handled by canvas) */
   background-image:
     /* Horizontal crosshair arms at intersections */
     radial-gradient(ellipse var(--cross-size) 1px at center, rgba(255, 32, 32, 0.7) 0%, transparent 100%),
     /* Vertical crosshair arms at intersections */
     radial-gradient(ellipse 1px var(--cross-size) at center, rgba(255, 32, 32, 0.7) 0%, transparent 100%),
     /* Glow at intersections */
-    radial-gradient(circle 4px at center, rgba(255, 32, 32, 0.5) 0%, transparent 100%),
-    /* Center dots */
-    radial-gradient(circle var(--dot-size) at center, rgba(255, 32, 32, 0.45) 0%, rgba(255, 32, 32, 0.15) 50%, transparent 70%);
+    radial-gradient(circle 4px at center, rgba(255, 32, 32, 0.5) 0%, transparent 100%);
   background-size:
-    var(--grid-size) var(--grid-size),
     var(--grid-size) var(--grid-size),
     var(--grid-size) var(--grid-size),
     var(--grid-size) var(--grid-size);
   background-position:
     0 0,
     0 0,
-    0 0,
-    calc(var(--grid-size) / 2) calc(var(--grid-size) / 2);
+    0 0;
 }
 
 /* Scanline Overlay */

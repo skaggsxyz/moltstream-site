@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import GridCanvas from "@/components/GridCanvas";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -28,6 +29,7 @@ export default function RootLayout({
       </head>
       <body className="font-grotesk">
         <div id="grid-overlay" />
+        <GridCanvas />
         <div id="scanlines" />
         {children}
         <script

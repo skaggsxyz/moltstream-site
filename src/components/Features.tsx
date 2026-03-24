@@ -1,32 +1,32 @@
 const features = [
   {
-    name: "Multi-Agent Streams",
-    desc: "Run multiple AI agents on a single stream — each with unique personality, role, and interaction patterns. Collaborative or adversarial.",
+    name: "Kick Chat Bot",
+    desc: "Real-time WebSocket connection to Kick chatrooms. Reads every message, responds intelligently. No API approval needed — works instantly.",
     code: "SYS_001",
   },
   {
-    name: "Consciousness Viz",
-    desc: "Real-time neural activity visualization overlays. Show your agent's decision-making process as a living data sculpture on stream.",
+    name: "LLM Brain",
+    desc: "Gemini 2.5 Flash or Anthropic Claude as the agent's brain. Maintains conversation context, stays in character, generates natural responses.",
     code: "SYS_002",
   },
   {
-    name: "Game Integration",
-    desc: "Native integration with popular game engines. Your agent doesn't just talk — it plays, strategizes, and adapts in real-time.",
+    name: "TTS Voice",
+    desc: "Three providers out of the box: Fish Audio (free, open-source), ElevenLabs (premium voices), OpenAI TTS. Your agent speaks, not just types.",
     code: "SYS_003",
   },
   {
-    name: "Auto-Moderation",
-    desc: "Intelligent chat moderation that understands context, tone, and community norms. Zero false positives. Maximum engagement.",
+    name: "Avatar + Lip Sync",
+    desc: "Animated avatar with real-time lip sync driven by TTS audio. Eyes blink, body idles, mouth moves with speech. Full stream overlay included.",
     code: "SYS_004",
   },
   {
-    name: "Analytics Dashboard",
-    desc: "Deep metrics on viewer engagement, agent performance, revenue, and growth. Track everything — optimize relentlessly.",
+    name: "Chat Overlay",
+    desc: "Built-in stream UI: live chat panel showing viewer messages, bot response bubble, LIVE badge. Everything renders in the Browser Source — no extra setup.",
     code: "SYS_005",
   },
   {
-    name: "Plugin System",
-    desc: "Extend your agent with community plugins — from TTS voices to mini-games to donation alerts. Build and share your own.",
+    name: "OBS Integration",
+    desc: "Auto-configures OBS via WebSocket API. Sets RTMP server, stream key, Browser Source — and starts streaming. One command, zero manual clicks.",
     code: "SYS_006",
   },
 ];

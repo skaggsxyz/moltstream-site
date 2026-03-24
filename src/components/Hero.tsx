@@ -74,7 +74,7 @@ export default function Hero() {
               <span className="font-bold">GITHUB</span>
               <span className="flex items-center gap-1 text-brutal-white font-bold text-base">
                 <span className="text-lg leading-none">★</span>
-                <span>23</span>
+                <span>47</span>
               </span>
             </a>
             <a
@@ -85,7 +85,7 @@ export default function Hero() {
             </a>
           </div>
 
-          <span className="corner-label bottom-left">VERSION: 0.4.0</span>
+          <span className="corner-label bottom-left">VERSION: 0.6.0</span>
         </div>
 
         {/* Right Column */}
@@ -98,7 +98,7 @@ export default function Hero() {
               Deploy AI agents that stream on Kick, YouTube &amp; Twitch — autonomously.
             </p>
             <p className="body-text mt-4">
-              One CLI command. Your agent handles chat, gameplay, overlays, and revenue 24/7.
+              One CLI command. Chat bot + LLM + TTS + avatar + OBS → live on Kick. No manual setup.
             </p>
           </div>
 

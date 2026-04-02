@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import Features from "@/components/Features";
+import CharacterCreator from "@/components/CharacterCreator";
 import GettingStarted from "@/components/GettingStarted";
 import Stats from "@/components/Stats";
 import Platforms from "@/components/Platforms";
@@ -15,6 +16,7 @@ export default function Home() {
         <Hero />
         <HowItWorks />
         <Features />
+        <CharacterCreator />
         <GettingStarted />
         <Stats />
         <Platforms />

@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import LiveStream from "@/components/LiveStream";
 import HowItWorks from "@/components/HowItWorks";
 import Features from "@/components/Features";
 import CharacterCreator from "@/components/CharacterCreator";
@@ -14,6 +15,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <LiveStream />
         <HowItWorks />
         <Features />
         <CharacterCreator />

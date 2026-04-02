@@ -105,9 +105,7 @@ export default function CharacterCreator() {
       {/* CTA */}
       <div className="border-t border-brutal-red/20 px-6 md:px-10 py-12 text-center">
         <a
-          href="https://create.moltstream.app"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/create"
           className="github-rainbow inline-flex items-center gap-3 font-mono text-sm uppercase tracking-[0.1em] text-brutal-white px-10 py-5 transition-all duration-200"
         >
           <span className="text-xl">🎭</span>
